@@ -1,0 +1,292 @@
+/* =================================================================== */
+/* TEMA DESAIN BARU: ELEGAN & ROMANTIS                               */
+/* =================================================================== */
+
+/* ... (SEMUA KODE CSS DARI ATAS SAMPAI SEBELUM GALERI TETAP SAMA) ... */
+/* 1. Pengaturan Dasar & Variabel Warna */
+:root {
+    --bg-color: #FDF8F5; /* Krem hangat / Off-white */
+    --text-color: #4A4442; /* Coklat tua / Charcoal */
+    --primary-color: #B5838D; /* Mawar pudar / Dusty Rose */
+    --secondary-color: #E1C699; /* Emas lembut / Champagne */
+    --light-accent: #f7e9e3; /* Pink sangat muda */
+    --border-color: #e0d7d2; /* Warna border halus */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Nunito Sans', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+}
+.login-page-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.birthday-page-body, .secret-page-body {
+    padding: 40px 15px;
+}
+
+/* 2. Tipografi */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+h1 { font-size: 3rem; text-align: center; }
+h2 { font-size: 2.2rem; margin-top: 60px; text-align: center;}
+h3 { font-size: 1.4rem; color: var(--text-color); }
+p, li, span, button, input, a { font-family: var(--font-body); }
+.subtitle { font-size: 1.1rem; color: #857e7b; margin-top: -10px; margin-bottom: 50px; max-width: 500px; margin-left: auto; margin-right: auto; text-align: center; }
+
+/* 3. Halaman Login */
+.login-container{
+    background: white;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(181, 131, 141, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid var(--border-color);
+}
+.login-container h1 { font-size: 2.5rem; }
+.login-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1rem;
+    background-color: var(--bg-color);
+}
+.login-input:focus { outline: 2px solid var(--secondary-color); }
+#loginButton {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+#loginButton:hover { background-color: #a3727c; transform: translateY(-2px); }
+.error-message{ color: red; margin-top: 15px; height: 20px; font-size: 0.9rem; }
+
+/* 4. Halaman Utama */
+.main-container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(181, 131, 141, 0.15);
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid var(--border-color);
+}
+.title-birthday { margin-bottom: 0; }
+#secret-trigger { cursor: pointer; display: inline-block; transition: transform 0.2s, color 0.2s; }
+#secret-trigger:hover { color: #ff0000; }
+#secret-trigger.clicked { animation: heart-beat 0.4s ease; }
+@keyframes heart-beat { 0% { transform: scale(1); } 50% { transform: scale(1.4); } 100% { transform: scale(1); } }
+
+/* Animasi */
+.animate-on-load { animation: fadeInDown 1s ease-out; }
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+[data-scroll] { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+[data-scroll].in-view { opacity: 1; transform: translateY(0); }
+.hidden { display: none !important; }
+
+/* Statistik */
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: var(--bg-color);
+    padding: 25px;
+    border-radius: 12px;
+    margin: 40px 0;
+}
+.stat-box {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+.stat-box h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #857e7b;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+.stat-number {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-weight: 700;
+}
+#days-together {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.timer-unit {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    align-items: center;
+}
+.timer-unit span {
+    font-size: 2.5rem;
+}
+.timer-unit label {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #857e7b;
+    margin-top: 2px;
+}
+@media (max-width: 480px) {
+    .main-container { padding: 20px; }
+    #days-together { font-size: 3rem; }
+    .timer-unit span { font-size: 2rem; }
+    #countdown { gap: 10px; }
+}
+
+
+/* Linimasa */
+.timeline-section-new { padding: 20px 0; }
+.timeline-new { max-width: 600px; margin: 0 auto; position: relative; }
+.timeline-new::before { content: ''; position: absolute; left: 24px; top: 0; bottom: 0; width: 2px; background-color: var(--border-color); }
+.timeline-item-new { margin-bottom: 20px; position: relative; }
+.timeline-summary { display: flex; align-items: center; padding: 15px; background-color: #fff; border: 1px solid var(--border-color); border-radius: 12px; cursor: pointer; transition: all 0.3s ease; }
+.timeline-summary:hover, .timeline-item-new.expanded .timeline-summary { background-color: var(--light-accent); border-color: var(--primary-color); }
+.timeline-summary .timeline-icon { width: 30px; height: 30px; background-color: var(--secondary-color); color: white; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 20px; z-index: 1; flex-shrink: 0; }
+.timeline-summary .timeline-icon svg { width: 16px; height: 16px; }
+.timeline-summary h3 { margin: 0; color: var(--text-color); font-size: 1.2rem; flex-grow: 1; text-align: left; }
+.timeline-summary .arrow { font-size: 20px; color: var(--primary-color); transition: transform 0.4s ease; }
+.timeline-detail { max-height: 0; opacity: 0; overflow: hidden; background-color: var(--bg-color); margin: -1px 0 0 75px; border-radius: 0 0 12px 12px; padding: 0px 20px; text-align: left; transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease; border: 1px dashed var(--border-color); border-top: none; }
+.timeline-item-new.expanded .timeline-summary .arrow { transform: rotate(180deg); }
+.timeline-item-new.expanded .timeline-detail { max-height: 200px; opacity: 1; padding: 20px 20px; }
+
+/* Kuis, Kado, Surat, Dll */
+.gift-section, #quiz-container, .game-section, .gallery-container, .message-box, .music-player { margin-top: 60px; }
+.gift-box{position:relative;width:120px;height:120px;margin:20px auto;cursor:pointer}.gift-lid{width:140px;height:30px;background-color:var(--primary-color);border-radius:8px;position:absolute;top:0;left:-10px;z-index:2;transition:transform .5s ease-in-out}.gift-body{width:120px;height:100px;background-color:#d3a1ab;position:absolute;bottom:0;border-radius:8px}.gift-lid::before,.gift-body::before{content:'';position:absolute;width:20px;height:100%;background:var(--secondary-color);left:50%;transform:translateX(-50%)}.gift-lid::after{content:'';position:absolute;width:100%;height:20px;background:var(--secondary-color);top:50%;transform:translateY(-50%);left:0}.gift-box.open .gift-lid{transform:translateY(-100px) rotate(15deg);opacity:0}
+#quiz-container{background-color:var(--bg-color);padding:30px;border-radius:12px;}
+.quiz-options{list-style:none;padding:0;}.quiz-options li{background:white;margin:8px 0;padding:15px;border-radius:8px;cursor:pointer;transition:background-color .2s; border:1px solid var(--border-color); text-align: left;}
+.quiz-options li:hover{background-color:var(--light-accent);}
+#submit-quiz{ background-color: var(--primary-color); color: white; border: none; padding: 12px 25px; font-size: 1rem; border-radius: 8px; cursor: pointer; margin-top: 20px; transition: all 0.3s; }
+#submit-quiz:hover{ background-color: #a3727c; transform: translateY(-2px); }
+.message-box { background: var(--bg-color); padding: 30px; border-radius: 12px; text-align: left; }
+#letter { line-height: 1.8; font-size: 1.1rem; }
+
+/* =========================================== */
+/* GALERI FOTO (METODE BARU: BORDER MENGIKUTI FOTO) */
+/* =========================================== */
+.gallery-container { background: var(--bg-color); padding: 30px; border-radius: 12px; }
+.carousel {
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: var(--bg-color); /* Latar belakang untuk ruang kosong */
+    /* Ukuran bingkai tetap agar halaman tidak loncat */
+    aspect-ratio: 1 / 1; /* Rasio bingkai kotak */
+}
+.carousel-inner {
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+    height: 100%;
+}
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    /* Mengatur agar pembungkus gambar di tengah */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Jarak antara foto dan tepi bingkai */
+}
+.image-wrapper {
+    /* Pembungkus ini tidak perlu style khusus lagi */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel-item img {
+    /* Gambar akan mengisi ruang di dalam wrapper */
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    /* Ini adalah border yang Anda inginkan */
+    border: 5px solid white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+
+/* GAME SECTION */
+.game-section { background-color: var(--bg-color); padding: 20px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; }
+#tetris-wrapper { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 20px; }
+#tetris { border: 2px solid var(--border-color); }
+.right-panel { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+#score-container { font-size: 1.2rem; font-weight: bold; color: var(--primary-color); background-color: white; padding: 10px 15px; border-radius: 10px; border: 1px solid var(--border-color); }
+#game-message-box { min-height: 40px; font-size: 1rem; font-weight: bold; color: var(--primary-color); display: flex; align-items: center; justify-content: center; text-align: center; }
+.game-message-enter { animation: popIn 0.5s ease; }
+@keyframes popIn { 0% { opacity: 0; transform: scale(0.5); } 100% { opacity: 1; transform: scale(1); } }
+#start-game-btn { background-color: var(--primary-color); color: white; border: none; padding: 12px 25px; font-size: 1rem; border-radius: 8px; cursor: pointer; transition: all 0.3s; margin-top: 20px; align-self: center; }
+#start-game-btn:hover{ background-color: #a3727c; transform: translateY(-2px); }
+#on-screen-controls { display: grid; grid-template-columns: 60px 60px 60px; grid-template-rows: 60px 60px; gap: 8px; grid-template-areas: ". rotate ." "left down right"; width: 196px; margin-top: 10px; }
+.control-btn { font-size: 28px; border: none; background-color: #d3a1ab; color: white; border-radius: 50%; cursor: pointer; user-select: none; box-shadow: 0 4px #b5838d; }
+.control-btn:active { transform: translateY(2px); box-shadow: 0 2px #b5838d; }
+#rotate { grid-area: rotate; }
+#move-left { grid-area: left; }
+#move-down { grid-area: down; }
+#move-right { grid-area: right; }
+.music-player { margin-top: 60px; }
+
+/* 5. Halaman Rahasia & Notifikasi Game */
+#game-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); display: flex; justify-content: center; align-items: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+#game-modal-overlay:not(.hidden) { opacity: 1; pointer-events: all; }
+#game-modal-content { background: white; padding: 30px 40px; border-radius: 12px; text-align: center; max-width: 400px; width: 90%; box-shadow: 0 5px 25px rgba(0,0,0,0.2); transform: scale(0.9); transition: transform 0.3s ease; }
+#game-modal-overlay:not(.hidden) #game-modal-content { transform: scale(1); }
+#modal-message { font-size: 1.2rem; color: var(--text-color); margin-top: 0; margin-bottom: 25px; line-height: 1.5; }
+#modal-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+#modal-buttons button, #modal-buttons a { border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: all 0.2s ease; font-weight: 600; text-decoration: none; }
+#modal-buttons .primary { background-color: var(--primary-color); color: white; }
+#modal-buttons .primary:hover { background-color: #a3727c; }
+#modal-buttons .secondary { background-color: #e0d7d2; color: var(--text-color); }
+#modal-buttons .secondary:hover { background-color: #d1c6c0; }
+.secret-page-body { background: #2b2625; color: #e0d7d2; }
+.secret-container { background: #3a3432; padding: 50px; border-radius: 16px; text-align: center; max-width: 900px; margin: auto; border: 1px solid #5c5451; }
+.secret-container h1 { color: var(--secondary-color); }
+.secret-container h2 { color: var(--primary-color); }
+.coupon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 40px 0; }
+.coupon { background: #2b2625; border: 2px dashed var(--secondary-color); padding: 25px; border-radius: 15px; transition: transform 0.3s, border-color 0.3s; }
+.coupon:hover { transform: translateY(-5px); border-color: white; }
+.coupon h3 { margin-top: 0; color: var(--secondary-color); font-size: 1.2rem; }
+.final-secret-message { margin-top: 40px; font-size: 1.2rem; font-style: italic; color: #b8b0ad; }
+.back-button { display: inline-block; margin-top: 30px; padding: 12px 25px; background-color: var(--primary-color); color: white; text-decoration: none; border-radius: 8px; transition: all 0.3s; }
+.back-button:hover { background-color: #a3727c; transform: translateY(-2px); }
+#confetti-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;z-index:-1}.confetti{position:absolute;width:10px;height:10px;background-color:#B5838D;opacity:.7;animation:fall 5s linear infinite}@keyframes fall{to{transform:translateY(100vh) rotate(360deg);opacity:0}}
